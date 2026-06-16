@@ -103,8 +103,15 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   Health Check
-══════════════════════════════════════════════════════════════════════════ */
+   Health Check & Root Routes
+   ══════════════════════════════════════════════════════════════════════════ */
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status:  'success',
+    message: '🏥 Welcome to the Zainab Clinic API. Use /health for status or /api/docs for documentation.',
+  });
+});
+
 app.get('/health', (req, res) => {
   res.status(200).json({
     status:  'success',
